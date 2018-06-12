@@ -1,9 +1,10 @@
+const path = require('path');
+
 module.exports = {
   mode : 'development',
   entry: './src/index.js',
   output: {
-    path: __dirname + '/build',
-    publicPath: '/build/',
+    path: path.join(__dirname,'build'),
     filename: 'bundle.js'
   },
   
@@ -20,6 +21,7 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-    disableHostCheck: true
+    disableHostCheck: true,
+    contentBase: path.join(__dirname, 'build')
   }
 }
